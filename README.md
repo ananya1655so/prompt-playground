@@ -1,65 +1,59 @@
-# Prompt Playground
+Prompt Playground
 
-## Problem Statement
+# Problem Statement
 Designing effective AI prompts is difficult. Small changes in wording can lead to very different outputs, but there is no simple way to compare or evaluate prompts.
 
-## Solution
-Prompt Playground is a tool that allows users to:
-- Create multiple versions of prompts
-- Run them on the same input
-- Compare outputs side-by-side
-- Score prompt quality
-- Improve weak prompts using structured formats
+# Solution
+Prompt Playground is a tool that allows users to create multiple versions of prompts, run them on the same input, compare outputs side by side, score prompt quality, and improve weak prompts using structured formats.
 
-## Features
-- Prompt version comparison
-- Prompt quality scoring
-- Prompt improvement suggestions
-- Reproducible and local execution
+# Features
+• Prompt version comparison  
+• Prompt quality scoring  
+• Prompt improvement suggestions  
+• Fully local execution  
 
-## Architecture
+# Architecture
 Frontend (Streamlit) → Backend (FastAPI) → Prompt Engine
 
-## Tech Stack
-- Python
-- FastAPI
-- Streamlit
+# Tech Stack
+• Python  
+• FastAPI  
+• Streamlit  
 
-## Setup Instructions
+# Setup Instructions
 
 1. Clone the repository
-2. Create a virtual environment
-   python -m venv venv
-3. Activate environment
-   - Windows: venv\\Scripts\\activate
-   - Mac/Linux: source venv/bin/activate
-4. Install dependencies
-   pip install -r requirements.txt
-5. Run backend
-   uvicorn backend.main:app --reload
-6. Run frontend
-   streamlit run frontend/app.py
+git clone <repository-url>
+cd prompt-playground
 
-## Reproducibility
-This project runs fully locally.
-A mock AI engine is used to ensure:
-- deterministic behavior
-- no dependency on external APIs
-- easy evaluation by judges
+2. Create and activate virtual environment
+python -m venv venv
 
-## Prompt Strategy
-Prompt evaluation focuses on:
-- clarity
-- specificity
-- constraints
-- output structure
+Windows:
+venv\Scripts\activate
 
-Prompt templates are stored in the `prompts/` folder.
+Mac / Linux:
+source venv/bin/activate
 
-## Future Scope
-- Replace mock AI with real LLM APIs
-- Add more evaluation metrics
-- Support more prompt versions
-- Replace mock AI with real LLM APIs
-- Add more evaluation metrics
-- Support more prompt versions
+3. Install dependencies
+pip install -r requirements.txt
+
+4. Run backend
+uvicorn backend.main:app --reload
+
+5. Run frontend (in a new terminal)
+python -m streamlit run frontend/app.py
+
+The application will open automatically in the browser.
+
+# Reproducibility
+This project runs fully locally. A mock AI engine is used to demonstrate prompt comparison and evaluation logic, ensuring the project can be easily run and reviewed during the hackathon without external API dependencies.
+
+# Prompt Strategy
+Prompt evaluation focuses on clarity, specificity, constraints, and output structure. Prompt templates used for evaluation and improvement are stored in the prompts/ folder.
+
+# Future Scope
+• Integrate real LLM APIs for evaluation  
+• Add more evaluation metrics  
+• Support additional prompt versions and comparisons
+• Support additional prompt versions and comparisons  
