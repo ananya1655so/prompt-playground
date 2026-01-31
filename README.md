@@ -56,4 +56,3 @@ Prompt evaluation focuses on clarity, specificity, constraints, and output struc
 • Integrate real LLM APIs for evaluation  
 • Add more evaluation metrics  
 • Support additional prompt versions and comparisons
-• Support additional prompt versions and comparisons  
