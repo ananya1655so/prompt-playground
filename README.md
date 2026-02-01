@@ -1,19 +1,43 @@
-Prompt Playground
+# Prompt Playground 
+
+**Prompt Playground** is a lightweight, local-first tool that helps users **compare, evaluate, and improve AI prompts side-by-side**.
+It focuses on *understanding why one prompt performs better than another*, not just viewing outputs.
 
 # Problem Statement
-Designing effective AI prompts is difficult. Small changes in wording can lead to very different outputs, but there is no simple way to compare or evaluate prompts.
+
+Designing effective AI prompts is difficult.
+
+Small changes in wording, structure, or constraints can drastically change AI responses, yet:
+* There is no simple way to **compare multiple prompts** on the same input.
+* Prompt quality is rarely **measured or explained**.
+* Beginners struggle to understand *why* a prompt fails.
 
 # Solution
-Prompt Playground is a tool that allows users to create multiple versions of prompts, run them on the same input, compare outputs side by side, score prompt quality, and improve weak prompts using structured formats.
 
-# Features
-• Prompt version comparison  
-• Prompt quality scoring  
-• Prompt improvement suggestions  
-• Fully local execution  
+Prompt Playground provides a **structured environment** to:
+* Compare multiple prompt versions
+* Run them on identical input
+* Score prompt quality
+* Suggest improvements based on best practices
 
-# Architecture
-Frontend (Streamlit) → Backend (FastAPI) → Prompt Engine
+All while running **fully locally**, with no external API dependencies.
+
+# Key Features
+
+* Side-by-side prompt comparison
+* Prompt quality scoring
+* Prompt improvement suggestions
+* Clean, beginner-friendly UI
+* Fully local & reproducible execution
+* Extendable architecture for real LLMs
+
+# Why Prompt Playground Is Better
+
+* Most tools focus on *outputs* Prompt Playground focuses on *prompt quality*
+* Encourages prompt engineering best practices
+* Offline & API-free → perfect for hackathons
+* Simple architecture, easy to extend
+* Beginner-friendly but technically sound
 
 # Architecture Overview
 
@@ -25,7 +49,8 @@ FastAPI Backend
  ↓
 Prompt Engine (Evaluation + Improvement Logic)
 
-# Project Structure
+
+#  Project Structure
 
 prompt-playground/
 ├── backend/
@@ -40,47 +65,131 @@ prompt-playground/
 │   ├── scoring_prompt.txt
 │   └── rewrite_prompt.txt
 │
-├── README.md
-└── requirements.txt
+├── requirements.txt
+└── README.md
 
-# Tech Stack
-• Python  
-• FastAPI  
-• Streamlit  
 
-# Setup Instructions
+# Frontend (Streamlit)
 
-1. Clone the repository
-git clone <repository-url>
-cd prompt-playground
+**Responsibilities**
 
-2. Create and activate virtual environment
-python -m venv venv
+* Collect user input (prompts + shared input)
+* Trigger comparison or improvement
+* Display:
 
-Windows:
-venv\Scripts\activate
+  * Outputs
+  * Scores
+  * Improved prompt suggestions
 
-Mac / Linux:
-source venv/bin/activate
+**Why Streamlit?**
 
-3. Install dependencies
-pip install -r requirements.txt
+* Extremely fast UI development
+* Perfect for hackathon demos
+* No frontend framework overhead
 
-4. Run backend
-uvicorn backend.main:app --reload
+#  Backend (FastAPI)
 
-5. Run frontend (in a new terminal)
-python -m streamlit run frontend/app.py
+**Responsibilities**
+* Receive prompts and input
+* Run evaluation logic
+* Score prompts
+* Generate improved prompt suggestions
 
-The application will open automatically in the browser.
+**Why FastAPI?**
+* Lightweight
+* Fast
+* Clean API separation
+* Easy future LLM integration
 
-# Reproducibility
-This project runs fully locally. A mock AI engine is used to demonstrate prompt comparison and evaluation logic, ensuring the project can be easily run and reviewed during the hackathon without external API dependencies.
+#  Prompt Engine (Mock AI)
+To ensure **full reproducibility**, a **mock AI engine** is used.
+
+### Why mock AI?
+
+* No API keys required
+* No rate limits
+* Judges can run instantly
+* Logic remains realistic and extensible
+
+The system is designed so real LLM APIs can be plugged in later.
 
 # Prompt Strategy
-Prompt evaluation focuses on clarity, specificity, constraints, and output structure. Prompt templates used for evaluation and improvement are stored in the prompts/ folder.
+Prompt evaluation focuses on:
+
+* Clarity
+* Specificity
+* Constraints
+* Output structure
+
+Prompt templates are stored in the `prompts/` folder for transparency and reproducibility.
+
+## Tech Stack
+* Python
+* FastAPI
+* Streamlit
+
+# Setup Instructions (Build Reproducibility)
+
+### Clone the repository
+
+```bash
+git clone <repository-link>
+cd prompt-playground
+```
+
+### (Optional) Create virtual environment
+
+```bash
+python -m venv venv
+```
+
+**Activate**
+
+* Mac/Linux: `source venv/bin/activate`
+* Windows: `venv\Scripts\activate`
+
+## Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+## Start backend (Terminal 1)
+
+```bash
+uvicorn backend.main:app --reload
+
+## Start frontend (Terminal 2)
+
+```bash
+python -m streamlit run frontend/app.py
+
+The app opens automatically in the browser.
+
+
+## How Judges Should Test This
+
+1. Enter two prompt versions
+2. Enter a common input
+3. Click **Run Comparison**
+4. Observe:
+
+   * Side-by-side outputs
+   * Prompt quality scores
+   * Improvement suggestions
+
+# Final Output
+
+* Visual comparison of prompts
+* Clear scoring feedback
+* Improved prompt version
 
 # Future Scope
-• Integrate real LLM APIs for evaluation  
-• Add more evaluation metrics  
-• Support additional prompt versions and comparisons
+
+* Integrate real LLM APIs
+* Add more evaluation metrics
+* Support more prompt versions
+* Export results for learning & sharing
+
+# Conclusion
+Prompt Playground turns prompt engineering from **guesswork into structured learning** making it easier, clearer, and more effective for everyone.
