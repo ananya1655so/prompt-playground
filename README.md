@@ -15,6 +15,34 @@ Prompt Playground is a tool that allows users to create multiple versions of pro
 # Architecture
 Frontend (Streamlit) → Backend (FastAPI) → Prompt Engine
 
+# Architecture Overview
+
+User
+ ↓
+Streamlit Frontend
+ ↓
+FastAPI Backend
+ ↓
+Prompt Engine (Evaluation + Improvement Logic)
+
+# Project Structure
+
+prompt-playground/
+├── backend/
+│   ├── main.py
+│   ├── schemas.py
+│   └── prompt_engine.py
+│
+├── frontend/
+│   └── app.py
+│
+├── prompts/
+│   ├── scoring_prompt.txt
+│   └── rewrite_prompt.txt
+│
+├── README.md
+└── requirements.txt
+
 # Tech Stack
 • Python  
 • FastAPI  
